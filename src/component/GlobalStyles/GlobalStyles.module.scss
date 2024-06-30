@@ -1,0 +1,38 @@
+@import 'normalize.css';
+
+:root {
+    --primary: #29a07e;
+    --text: #3f423f;
+    --black: #000;
+    --white: #fff;
+    --blur: rgba(102, 102, 102, 0.85);
+    --hover: rgba(22, 24, 35, 0.03);
+    --red: rgb(210, 110, 75);
+
+    --default-layout-header-height: 70px;
+    --default-layout-width: 1240px;
+    --default-layout-horizontal-spacer: 24px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+a {
+    color: var(--text);
+    text-decoration: none;
+}
