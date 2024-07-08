@@ -19,7 +19,7 @@ const publicRoutes = [
         component: Keycap,
     },
     {
-        path: '/kit-ban-phim',
+        path: '/kit',
         component: Kit,
     },
     {

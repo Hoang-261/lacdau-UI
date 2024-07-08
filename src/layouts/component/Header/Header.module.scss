@@ -1,17 +1,18 @@
 .wrapper {
     width: 100%;
     height: var(--default-layout-header-height);
-    // padding: 4px 0;
-    margin: 0 40px;
-    display: flex;
-
-    align-items: center;
+    padding: 0 40px;
     position: fixed;
+
     top: 0;
     left: 0;
     z-index: 10;
+    box-shadow: var(--box-shadow);
+    background-color: var(--white);
 }
 .inner {
+    justify-content: space-between;
+    width: 100%;
     display: flex;
     align-items: center;
 }

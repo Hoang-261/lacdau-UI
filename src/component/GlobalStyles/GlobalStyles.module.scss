@@ -12,6 +12,7 @@
     --default-layout-header-height: 70px;
     --default-layout-width: 1240px;
     --default-layout-horizontal-spacer: 24px;
+    --box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
 }
 * {
     margin: 0;
@@ -20,11 +21,14 @@
 }
 html {
     font-size: 62.5%;
+    background-color: #ccc;
 }
 body {
     font-size: 1.6rem;
     line-height: 1.5;
     color: var(--text);
+    background-color: #fff;
+    height: 100%;
 }
 
 button,

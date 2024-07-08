@@ -1,11 +1,13 @@
 .wrapper {
     width: 100%;
-    max-height: min((100vh - 96px) - 60px, 734px);
-    min-height: 100px;
+    // max-height: min((100vh - 96px) - 60px, 734px);
+    min-height: 60px;
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     display: flex;
+    justify-content: center;
+    // align-items: center;
     flex-direction: column;
     color: var(--blur);
 }
