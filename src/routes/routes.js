@@ -1,10 +1,8 @@
 import Home from '~/pages/Home/Home';
+import InfoProduct from '~/pages/InfoProduct/InfoProduct';
 import Keyboard from '~/pages/Keyboard/Keyboard';
 import Keycap from '~/pages/Keycap/Keycap';
 import Mouse from '~/pages/Mouse/Mouse';
-import News from '~/pages/News/News';
-import Switch from '~/pages/Switch/Switch';
-import Kit from '~/pages/Kit/Kit';
 const publicRoutes = [
     {
         path: '/',
@@ -19,20 +17,12 @@ const publicRoutes = [
         component: Keycap,
     },
     {
-        path: '/kit',
-        component: Kit,
-    },
-    {
         path: '/mouse',
         component: Mouse,
     },
     {
-        path: '/news',
-        component: News,
-    },
-    {
-        path: '/switch',
-        component: Switch,
+        path: '/keyboard/:name',
+        component: InfoProduct,
     },
 ];
 const privateRoutes = [];

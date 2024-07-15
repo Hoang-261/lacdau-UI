@@ -1,0 +1,21 @@
+.wrapper {
+    width: 200px;
+    color: var(--blur);
+    font-size: 1.6rem;
+}
+.filter-widget {
+    width: 100%;
+    margin: 8px 0;
+}
+.type {
+    cursor: pointer;
+
+    input {
+        margin-right: 4px;
+        accent-color: var(--primary);
+    }
+
+    &:hover {
+        color: var(--primary);
+    }
+}

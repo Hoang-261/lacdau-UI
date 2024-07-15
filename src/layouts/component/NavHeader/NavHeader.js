@@ -10,8 +10,10 @@ import SupportItem from '~/component/SupportItem';
 // import { useState } from 'react';
 import AccountOption from '~/component/AccountOption';
 import Wrapper from '~/component/Wrapper';
-import ProductItem from '~/component/ProductItem';
 import Button from '~/component/Button';
+import { useContext, useState } from 'react';
+import { dataApi } from '~/App';
+import ProductSearch from '~/component/ProductSearch';
 const cx = classNames.bind(styles);
 const navbarItems = [
     {
@@ -22,8 +24,8 @@ const navbarItems = [
     },
     {
         id: 2,
-        to: '/kit',
-        content: 'Kit bàn phím',
+        to: '/keycap',
+        content: 'KeyCap',
         img: '',
     },
     {
@@ -35,11 +37,11 @@ const navbarItems = [
 ];
 function NavHeader() {
     const currentUser = true;
-    let numberProduct = 2;
+    const dataContext = useContext(dataApi);
     return (
         <div className={cx('wrapper')}>
             {navbarItems.map((item) => (
-                <Link to={item.to} className={cx('menu-item')}>
+                <Link key={item.id} to={item.to} className={cx('menu-item')}>
                     <p>{item.content}</p>
                 </Link>
             ))}
@@ -88,11 +90,16 @@ function NavHeader() {
                     render={(attr) => (
                         <div className="support-list" tabIndex="1" {...attr}>
                             <Wrapper>
-                                {numberProduct > 0 ? (
+                                {dataContext.cart.length > 0 ? (
                                     <div className={cx('cart')}>
-                                        <ProductItem icon={<FontAwesomeIcon icon={faXmark} />} />
-                                        <ProductItem icon={<FontAwesomeIcon icon={faXmark} />} />
-                                        <ProductItem icon={<FontAwesomeIcon icon={faXmark} />} />
+                                        {dataContext.cart.map((item) => (
+                                            <ProductSearch
+                                                cart={dataContext.cart}
+                                                setCart={dataContext.setCart}
+                                                data={item}
+                                                icon={<FontAwesomeIcon icon={faXmark} />}
+                                            />
+                                        ))}
                                         <Button outline>Xem giỏ hàng</Button>
                                         <Button primary>Thanh Toán</Button>
                                     </div>
@@ -106,7 +113,7 @@ function NavHeader() {
                     )}
                 >
                     <div className={cx('cart-icon')}>
-                        {numberProduct > 0 && <div className={cx('dot')}>{numberProduct}</div>}
+                        {dataContext.cart.length > 0 && <div className={cx('dot')}>{dataContext.cart.length}</div>}
                         <FontAwesomeIcon className={cx('icon')} icon={faBagShopping} />
                     </div>
                 </Tippy>

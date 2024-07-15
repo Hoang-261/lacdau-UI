@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Search from '~/layouts/component/Search';
 import NavHeader from '~/layouts/component/NavHeader';
 import images from '~/assets/image';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 

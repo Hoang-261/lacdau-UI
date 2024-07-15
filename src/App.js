@@ -7,15 +7,21 @@ import request from '~/utils/request';
 export const dataApi = createContext();
 function App() {
     const [data, setData] = useState(null);
-
+    const [cart, setCart] = useState([]);
+    const fetchApi = async () => {
+        const res = await request.get();
+        setData(res.data);
+    };
     useEffect(() => {
-        request.get().then((res) => setData(res.data));
+        fetchApi();
     }, []);
+
+    const dataContext = { data, cart, setCart };
+
     return (
         <Router>
-            <dataApi.Provider value={data}>
+            <dataApi.Provider value={dataContext}>
                 <div className="App">
-                    {/* {console.log(data)} */}
                     <Routes>
                         {publicRoutes.map((route, index) => {
                             const Page = route.component;

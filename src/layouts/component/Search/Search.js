@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Wrapper from '~/component/Wrapper';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/svg-arrow.css';
-import ProductItem from '~/component/ProductItem';
+import ProductSearch from '~/component/ProductSearch';
 import { useEffect, useState, useContext } from 'react';
 import { useDebounce } from '~/component/hook';
 import { dataApi } from '~/App';
@@ -17,21 +17,19 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [isResult, setIsResult] = useState(true);
-    const debounce = useDebounce(searchValue, 500);
-
-    const datas = useContext(dataApi);
+    const debounce = useDebounce(searchValue, 800);
+    const dataContext = useContext(dataApi);
+    const dataSource = dataContext.data;
     useEffect(() => {
         if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
-        datas.keyboard.map((data) =>
-            data.under_category.map((value) => {
-                if (debounce.toLowerCase() === value.toLowerCase()) {
-                    setSearchResult((prev) => [...prev, data]);
-                }
-            }),
-        );
+        dataSource.keyboard.map((data) => {
+            if (data.display_name.toLowerCase().includes(debounce.toLowerCase())) {
+                setSearchResult((prev) => [...prev, data]);
+            }
+        });
     }, [debounce]);
 
     const handleHideResult = () => {
@@ -47,7 +45,7 @@ function Search() {
                     <div className={cx('search-result')} tabIndex="1" {...attr}>
                         <Wrapper>
                             {searchResult.map((result) => (
-                                <ProductItem key={result.id} data={result} />
+                                <ProductSearch key={result.id} data={result} />
                             ))}
                         </Wrapper>
                     </div>

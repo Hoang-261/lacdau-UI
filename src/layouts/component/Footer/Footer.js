@@ -56,7 +56,9 @@ function Footer() {
                 <div key={items.id} className={cx('info-item')}>
                     <p className={cx('title')}>{items.title}</p>
                     {items.listItems.map((item) => (
-                        <a className={cx('item')}>{item}</a>
+                        <a key={item} className={cx('item')}>
+                            {item}
+                        </a>
                     ))}
                 </div>
             ))}
