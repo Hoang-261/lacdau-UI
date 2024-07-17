@@ -10,8 +10,6 @@ import SupportItem from '~/component/SupportItem';
 // import { useState } from 'react';
 import AccountOption from '~/component/AccountOption';
 import Wrapper from '~/component/Wrapper';
-import { useContext } from 'react';
-import { dataApi } from '~/App';
 import Search from '../Search';
 const cx = classNames.bind(styles);
 const navbarItems = [
@@ -33,7 +31,6 @@ const navbarItems = [
 ];
 function NavMobile({ className, icon }) {
     const currentUser = true;
-    const dataContext = useContext(dataApi);
     const classes = cx('wrapper', {
         [className]: className,
     });
