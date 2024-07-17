@@ -19,7 +19,7 @@ function Product({ data }) {
         );
     } else if (dataSource) {
         return (
-            <div className={cx('wrapper')}>
+            <div className={cx('container-md', 'wrapper')}>
                 {dataSource.keyboard.map((item) => (
                     <ProductItem data={item} key={item.id} />
                 ))}

@@ -2,28 +2,21 @@
     width: 100%;
     padding: 40px;
 }
-.item {
-    display: flex;
-}
+
 .img-box {
-    flex-grow: 4;
     overflow: hidden;
-    border-right: 1px solid #dbdada;
+    // border-right: 1px solid #dbdada;
 }
 
 .product-img {
     width: 100%;
+    height: 240px;
     object-fit: cover;
-}
-
-.product-info {
-    flex-grow: 6;
 }
 
 .info {
     padding: 0 0 0 8px;
     margin-top: 20px;
-    width: 80%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

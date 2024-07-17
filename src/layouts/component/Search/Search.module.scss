@@ -1,13 +1,11 @@
 .search {
-    margin: 0 16px;
+    margin: 16px;
     display: flex;
     background-color: #fff;
-    width: 328px;
     height: 42px;
     border-radius: 21px;
     align-items: center;
     color: var(--text);
-
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
 
     input {

@@ -2,16 +2,14 @@ import classNames from 'classnames/bind';
 import styles from './NavHeader.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBagShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
-// import Wrapper from '~/component/Wrapper';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/svg-arrow.css';
 import { Link } from 'react-router-dom';
 import SupportItem from '~/component/SupportItem';
-// import { useState } from 'react';
 import AccountOption from '~/component/AccountOption';
 import Wrapper from '~/component/Wrapper';
 import Button from '~/component/Button';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { dataApi } from '~/App';
 import ProductSearch from '~/component/ProductSearch';
 const cx = classNames.bind(styles);
@@ -20,32 +18,32 @@ const navbarItems = [
         id: 1,
         to: '/keyboard',
         content: 'keyboard',
-        img: 'https://akko.vn/wp-content/uploads/2024/04/MOD007V3-he-of-dragon-510x510.png',
     },
     {
         id: 2,
         to: '/keycap',
         content: 'KeyCap',
-        img: '',
     },
     {
         id: 3,
         to: '/mouse',
         content: 'Mouse',
-        img: '',
     },
 ];
-function NavHeader() {
+function NavHeader({ className }) {
     const currentUser = true;
     const dataContext = useContext(dataApi);
+    const classes = cx('wrapper', {
+        [className]: className,
+    });
     return (
-        <div className={cx('wrapper')}>
+        <div className={classes}>
             {navbarItems.map((item) => (
-                <Link key={item.id} to={item.to} className={cx('menu-item')}>
+                <Link key={item.id} to={item.to} className={cx('menu-item', 'd-none', 'd-sm-block')}>
                     <p>{item.content}</p>
                 </Link>
             ))}
-            <div>
+            <div className={cx('d-none', 'd-sm-block')}>
                 <Tippy
                     placement="bottom"
                     interactive
@@ -62,7 +60,7 @@ function NavHeader() {
                 </Tippy>
             </div>
             {currentUser ? (
-                <div>
+                <div className={cx('d-none', 'd-sm-block')}>
                     <Tippy
                         interactive
                         placement="bottom"
@@ -78,12 +76,11 @@ function NavHeader() {
                     </Tippy>
                 </div>
             ) : (
-                <div className={cx('menu-item')}>
+                <div className={cx('menu-item', 'd-none', 'd-sm-block')}>
                     <p>đăng nhập</p>
                 </div>
             )}
-
-            <div>
+            <div className={cx('icon')}>
                 <Tippy
                     interactive
                     placement="bottom-end"
@@ -114,7 +111,7 @@ function NavHeader() {
                 >
                     <div className={cx('cart-icon')}>
                         {dataContext.cart.length > 0 && <div className={cx('dot')}>{dataContext.cart.length}</div>}
-                        <FontAwesomeIcon className={cx('icon')} icon={faBagShopping} />
+                        <FontAwesomeIcon icon={faBagShopping} />
                     </div>
                 </Tippy>
             </div>

@@ -13,7 +13,7 @@ import { dataApi } from '~/App';
 
 const cx = classNames.bind(styles);
 
-function Search() {
+function Search({ className }) {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [isResult, setIsResult] = useState(true);
@@ -35,8 +35,11 @@ function Search() {
     const handleHideResult = () => {
         setIsResult(false);
     };
+    const classes = cx({
+        [className]: className,
+    });
     return (
-        <div>
+        <div className={classes}>
             <Tippy
                 interactive
                 visible={isResult && searchResult.length > 0}

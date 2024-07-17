@@ -34,8 +34,8 @@ const content = [
 
 function Footer() {
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('info-item ')}>
+        <div className={cx('wrapper', 'row')}>
+            <div className={cx('info-item', 'col-12', 'col-sm-6', 'col-lg-3')}>
                 <Link to="/">
                     <img className={cx('logo-icon')} src={images.logo} alt="logo" />
                 </Link>
@@ -53,7 +53,7 @@ function Footer() {
                 </p>
             </div>
             {content.map((items) => (
-                <div key={items.id} className={cx('info-item')}>
+                <div key={items.id} className={cx('info-item', 'col-12', 'col-sm-6', 'col-lg-3')}>
                     <p className={cx('title')}>{items.title}</p>
                     {items.listItems.map((item) => (
                         <a key={item} className={cx('item')}>

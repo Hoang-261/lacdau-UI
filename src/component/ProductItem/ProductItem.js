@@ -6,13 +6,13 @@ const cx = classNames.bind(styles);
 function ProductItem({ data }) {
     if (data) {
         return (
-            <Link to={`/keyboard/${data.path}`} className={cx('wrapper')}>
+            <Link to={`/keyboard/${data.path}`} className={cx('col-12', 'col-sm-6', 'col-lg-3', 'wrapper')}>
+                <img className={cx('product-img')} src={data.url_ava} alt={data.display_name} />
                 {data.old_price !== 0 && (
                     <div className={cx('discount')}>{`${Math.floor(
                         ((data.old_price - data.price) / data.old_price) * 100,
                     )}%`}</div>
                 )}
-                <img className={cx('product-img')} src={data.url_ava} alt={data.display_name} />
                 <div className={cx('info')}>
                     <p className={cx('name')}>{data.display_name}</p>
                     <div className={cx('price')}>

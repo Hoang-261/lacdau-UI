@@ -3,7 +3,7 @@ import { publicRoutes } from '~/routes';
 import DefaultLayout from '~/layouts/DefaultLayout';
 import { Fragment, useEffect, useState, createContext } from 'react';
 import request from '~/utils/request';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 export const dataApi = createContext();
 function App() {
     const [data, setData] = useState(null);

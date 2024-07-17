@@ -42,8 +42,8 @@ function ProductCategory() {
     };
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('catalog-filter')}>
+        <div className={cx('wrapper', 'container-md')}>
+            <div className={cx('catalog-filter', 'd-none', 'd-md-block', 'col-md-3')}>
                 <Filter filterItems={filterItems} />
             </div>
             <div className={cx('catalog-content')}>

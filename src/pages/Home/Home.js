@@ -6,11 +6,10 @@ const cx = classNames.bind(styles);
 
 function Home() {
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('container-fluid', 'p-0', 'wrapper')}>
             <Slider />
             <p className={cx('text')}>sản phẩm mới</p>
             <Product />
-            {/* <Nav /> */}
         </div>
     );
 }
