@@ -19,7 +19,7 @@ function Filter({ filterItems, setData }) {
         });
     };
     useEffect(() => {
-        if (checked.length == 0) {
+        if (checked.length === 0) {
             filterItems(typeKeycap);
         } else {
             filterItems(checked);

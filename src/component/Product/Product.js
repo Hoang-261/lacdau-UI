@@ -1,6 +1,6 @@
 import styles from './Product.module.scss';
 import classNames from 'classnames/bind';
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { dataApi } from '~/App';
 import ProductItem from '~/component/ProductItem';
 const cx = classNames.bind(styles);

@@ -56,6 +56,7 @@ function Footer() {
                 <div key={items.id} className={cx('info-item', 'col-12', 'col-sm-6', 'col-lg-3')}>
                     <p className={cx('title')}>{items.title}</p>
                     {items.listItems.map((item) => (
+                        // eslint-disable-next-line jsx-a11y/anchor-is-valid
                         <a key={item} className={cx('item')}>
                             {item}
                         </a>
