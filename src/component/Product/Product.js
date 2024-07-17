@@ -54,6 +54,7 @@ function Product({ data }) {
                         <Button
                             onClick={(e) => handlePageChange(e.target.innerText)}
                             rounded
+                            primary={currentPage === number}
                             className={cx('numPage')}
                             key={number}
                         >
