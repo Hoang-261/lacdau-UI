@@ -39,11 +39,11 @@ function NavHeader({ className }) {
     return (
         <div className={classes}>
             {navbarItems.map((item) => (
-                <Link key={item.id} to={item.to} className={cx('menu-item', 'd-none', 'd-sm-block')}>
+                <Link key={item.id} to={item.to} className={cx('menu-item', 'd-none', 'd-lg-block')}>
                     <p>{item.content}</p>
                 </Link>
             ))}
-            <div className={cx('d-none', 'd-sm-block')}>
+            <div className={cx('d-none', 'd-lg-block')}>
                 <Tippy
                     placement="bottom"
                     interactive
@@ -60,7 +60,7 @@ function NavHeader({ className }) {
                 </Tippy>
             </div>
             {currentUser ? (
-                <div className={cx('d-none', 'd-sm-block')}>
+                <div className={cx('d-none', 'd-lg-block')}>
                     <Tippy
                         interactive
                         placement="bottom"
@@ -76,7 +76,7 @@ function NavHeader({ className }) {
                     </Tippy>
                 </div>
             ) : (
-                <div className={cx('menu-item', 'd-none', 'd-sm-block')}>
+                <div className={cx('menu-item', 'd-none', 'd-lg-block')}>
                     <p>đăng nhập</p>
                 </div>
             )}

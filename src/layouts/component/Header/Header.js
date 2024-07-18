@@ -12,17 +12,15 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <NavMobile className={cx('d-block', 'd-sm-none', 'col-2')}></NavMobile>
-                <div className={cx('col-4', 'col-sm-2', 'col-md-4')}>
+                <NavMobile className={cx('d-block', 'd-lg-none', 'col-2', 'col-sm-2')}></NavMobile>
+                <div className={cx('col-4', 'col-sm-3', 'col-md-3')}>
                     <Link to="/">
                         <img className={cx('logo-icon')} src={images.logo} alt="logo" />
                     </Link>
                 </div>
 
-                <Search className={cx('d-none', 'd-sm-block', 'col-sm-2', 'col-md-3')} />
-                <NavHeader
-                    className={cx('col-sm-8', 'col-md-5', 'd-flex', 'justify-content-between', 'align-items-center')}
-                />
+                <Search className={cx('d-none', 'd-lg-block', 'col-lg-3')} />
+                <NavHeader className={cx('col-lg-6', 'd-flex', 'justify-content-between', 'align-items-center')} />
             </div>
         </header>
     );

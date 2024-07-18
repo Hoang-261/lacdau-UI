@@ -3,6 +3,7 @@ import styles from './InfoProductItem.module.scss';
 import { useContext, useState } from 'react';
 import { dataApi } from '~/App';
 import Button from '../Button';
+import Helmet from '../Helmet';
 
 const cx = classNames.bind(styles);
 
@@ -49,44 +50,46 @@ function InfoProductItem() {
             if (`/keyboard/${item.path}` === window.location.pathname) data = item;
         });
         return (
-            <div className={cx('wrapper', 'container-md')}>
-                <div className={cx('item', 'd-sm-flex', 'col-sm-12')}>
-                    <div className={cx('img-box', 'col-12', 'col-sm-4')}>
-                        <img className={cx('product-img')} src={data.url_ava} alt={data.display_name} />
-                    </div>
+            <Helmet title={data.display_name}>
+                <div className={cx('wrapper', 'container-md')}>
+                    <div className={cx('item', 'd-sm-flex', 'col-sm-12')}>
+                        <div className={cx('img-box', 'col-12', 'col-sm-4')}>
+                            <img className={cx('product-img')} src={data.url_ava} alt={data.display_name} />
+                        </div>
 
-                    <div className={cx('info', 'col-12', 'col-sm-6')}>
-                        <p className={cx('name')}>{data.display_name}</p>
-                        <div className={cx('price')}>
-                            {data.old_price > 0 && <p className={cx('old-price')}>₫{data.old_price}</p>}
-                            <p className={cx('now-price')}>₫{data.price}</p>
-                            {data.old_price !== 0 && (
-                                <div className={cx('discount')}>{`${Math.floor(
-                                    ((data.old_price - data.price) / data.old_price) * 100,
-                                )}%`}</div>
-                            )}
-                        </div>
-                        <div className={cx('add-cart')}>
-                            <Button outline small onClick={handleReduce}>
-                                -
-                            </Button>
-                            <Button small disabled>
-                                {quantity}
-                            </Button>
-                            <Button outline small onClick={handleIncrease}>
-                                +
-                            </Button>
-                            <Button primary onClick={handleAddCart}>
-                                Thêm vào giỏ hàng
-                            </Button>
+                        <div className={cx('info', 'col-12', 'col-sm-6')}>
+                            <p className={cx('name')}>{data.display_name}</p>
+                            <div className={cx('price')}>
+                                {data.old_price > 0 && <p className={cx('old-price')}>₫{data.old_price}</p>}
+                                <p className={cx('now-price')}>₫{data.price}</p>
+                                {data.old_price !== 0 && (
+                                    <div className={cx('discount')}>{`${Math.floor(
+                                        ((data.old_price - data.price) / data.old_price) * 100,
+                                    )}%`}</div>
+                                )}
+                            </div>
+                            <div className={cx('add-cart')}>
+                                <Button outline small onClick={handleReduce}>
+                                    -
+                                </Button>
+                                <Button small disabled>
+                                    {quantity}
+                                </Button>
+                                <Button outline small onClick={handleIncrease}>
+                                    +
+                                </Button>
+                                <Button primary onClick={handleAddCart}>
+                                    Thêm vào giỏ hàng
+                                </Button>
+                            </div>
                         </div>
                     </div>
+                    <div className={cx('describe', 'col-sm-12')}>
+                        <h2>Thông tin sản phẩm</h2>
+                        <p>Update...</p>
+                    </div>
                 </div>
-                <div className={cx('describe', 'col-sm-12')}>
-                    <h2>Thông tin sản phẩm</h2>
-                    <p>Update...</p>
-                </div>
-            </div>
+            </Helmet>
         );
     }
 }
