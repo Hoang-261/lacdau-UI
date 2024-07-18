@@ -47,6 +47,7 @@ function NavHeader({ className }) {
                 <Tippy
                     placement="bottom"
                     interactive
+                    delay={(500, 0)}
                     render={(attr) => (
                         <div className="support-list" tabIndex="1" {...attr}>
                             <SupportItem></SupportItem>
@@ -63,6 +64,7 @@ function NavHeader({ className }) {
                 <div className={cx('d-none', 'd-lg-block')}>
                     <Tippy
                         interactive
+                        delay={(500, 0)}
                         placement="bottom"
                         render={(attr) => (
                             <div className="account-option" tabIndex="1" {...attr}>
@@ -84,6 +86,7 @@ function NavHeader({ className }) {
                 <Tippy
                     interactive
                     placement="bottom-end"
+                    delay={(500, 0)}
                     render={(attr) => (
                         <div className="support-list" tabIndex="1" {...attr}>
                             <Wrapper>
