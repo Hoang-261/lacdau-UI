@@ -83,7 +83,7 @@ function Register() {
         let checkValidate = inValidInputs();
 
         if (checkValidate === true) {
-            let res = await axios.post('http://localhost:8080/api/users', {
+            let res = await axios.post('https://lacdau-be.onrender.com/api/users', {
                 email,
                 phone,
                 password,
