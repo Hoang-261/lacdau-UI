@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Wrapper from '~/component/Wrapper';
 import Search from '../Search';
+import PropTypes from 'prop-types';
 import { state } from '../Header/Header';
 const cx = classNames.bind(styles);
 const navbarItems = [
@@ -125,5 +126,8 @@ function NavMobile({ className, icon }) {
         </div>
     );
 }
-
+NavMobile.propTypes = {
+    className: PropTypes.string,
+    icon: PropTypes.node,
+};
 export default NavMobile;

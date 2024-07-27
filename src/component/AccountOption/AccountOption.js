@@ -3,7 +3,6 @@ import styles from './AccountOption.module.scss';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { state } from '~/layouts/component/Header/Header';
-
 const cx = classNames.bind(styles);
 
 function AccountOption() {

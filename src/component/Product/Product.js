@@ -6,6 +6,7 @@ import { dataApi } from '~/App';
 import ProductItem from '~/component/ProductItem';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 
 function Product({ data }) {
@@ -80,5 +81,7 @@ function Product({ data }) {
         );
     }
 }
-
+Product.propTypes = {
+    data: PropTypes.array,
+};
 export default Product;

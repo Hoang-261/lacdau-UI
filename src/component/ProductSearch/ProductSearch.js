@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './ProductSearch.module.scss';
-
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 function ProductSearch({
     data,
@@ -50,5 +50,14 @@ function ProductSearch({
         </>
     );
 }
-
+ProductSearch.propTypes = {
+    data: PropTypes.object,
+    icon: PropTypes.node,
+    cart: PropTypes.array,
+    setCart: PropTypes.func,
+    vertical: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    className: PropTypes.string,
+};
 export default ProductSearch;

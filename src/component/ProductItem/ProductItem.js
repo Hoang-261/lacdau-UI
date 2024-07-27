@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
-
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 function ProductItem({ data }) {
     if (data) {
@@ -25,5 +25,7 @@ function ProductItem({ data }) {
         );
     }
 }
-
+ProductItem.propTypes = {
+    data: PropTypes.object,
+};
 export default ProductItem;

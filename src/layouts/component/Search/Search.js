@@ -8,6 +8,7 @@ import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/svg-arrow.css';
 import ProductSearch from '~/component/ProductSearch';
 import { useEffect, useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { useDebounce } from '~/component/hook';
 import { dataApi } from '~/App';
 
@@ -73,5 +74,7 @@ function Search({ className }) {
         </div>
     );
 }
-
+Search.propTypes = {
+    classNames: PropTypes.string,
+};
 export default Search;

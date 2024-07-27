@@ -14,6 +14,7 @@ import { dataApi } from '~/App';
 import ProductSearch from '~/component/ProductSearch';
 import Login from '~/component/Login';
 import Register from '~/component/Register';
+import PropTypes from 'prop-types';
 import { state } from '../Header/Header';
 const cx = classNames.bind(styles);
 const navbarItems = [
@@ -130,5 +131,7 @@ function NavHeader({ className }) {
         </div>
     );
 }
-
+NavHeader.propTypes = {
+    className: PropTypes.string,
+};
 export default NavHeader;

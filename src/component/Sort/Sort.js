@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Sort.module.scss';
 import { useEffect, useState } from 'react';
-
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 const sortData = [
     {
@@ -43,5 +43,7 @@ function Sort({ sortItems }) {
         </div>
     );
 }
-
+Sort.propTypes = {
+    sortItems: PropTypes.func.isRequired,
+};
 export default Sort;

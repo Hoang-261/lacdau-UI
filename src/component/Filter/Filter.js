@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Filter.module.scss';
 import { dataApi } from '~/App';
 import { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 
 function Filter({ filterItems, setData }) {
@@ -87,4 +88,9 @@ function Filter({ filterItems, setData }) {
     );
 }
 
+Filter.propTypes = {
+    filterItems: PropTypes.func,
+
+    setData: PropTypes.func,
+};
 export default Filter;
