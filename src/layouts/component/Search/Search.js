@@ -25,6 +25,8 @@ function Search({ className }) {
             setSearchResult([]);
             return;
         }
+        setSearchResult([]);
+
         dataSource.keyboard.map((data) => {
             if (data.display_name.toLowerCase().includes(debounce.toLowerCase())) {
                 setSearchResult((prev) => [...prev, data]);

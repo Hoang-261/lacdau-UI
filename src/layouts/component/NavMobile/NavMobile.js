@@ -5,10 +5,10 @@ import { faAngleDown, faAngleUp, faBars } from '@fortawesome/free-solid-svg-icon
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/svg-arrow.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import AccountOption from '~/component/AccountOption';
+import { useContext, useState } from 'react';
 import Wrapper from '~/component/Wrapper';
 import Search from '../Search';
+import { state } from '../Header/Header';
 const cx = classNames.bind(styles);
 const navbarItems = [
     {
@@ -28,13 +28,12 @@ const navbarItems = [
     },
 ];
 function NavMobile({ className, icon }) {
-    const currentUser = true;
     const classes = cx('wrapper', {
         [className]: className,
     });
     const [isShowSuport, setIsShowSuport] = useState(false);
     const [isShowOptionAccount, setIsShowOptionAccount] = useState(false);
-
+    const modal = useContext(state);
     const handleShowSuport = () => {
         setIsShowSuport((prev) => !prev);
     };
@@ -77,7 +76,7 @@ function NavMobile({ className, icon }) {
                                     </div>
                                 </div>
                             )}
-                            {currentUser ? (
+                            {modal.isUser && (
                                 <div>
                                     <div className={cx('menu-item')} onClick={handleShowAccount}>
                                         <p>Tài khoản</p>
@@ -104,15 +103,15 @@ function NavMobile({ className, icon }) {
                                             <Link to="/" className={cx('menu-item')}>
                                                 <p>tài Khoản</p>
                                             </Link>
-                                            <Link to="/" className={cx('menu-item')}>
+                                            <Link
+                                                to="/"
+                                                onClick={() => modal.setIsUser(false)}
+                                                className={cx('menu-item')}
+                                            >
                                                 <p>Thoát</p>
                                             </Link>
                                         </div>
                                     )}
-                                </div>
-                            ) : (
-                                <div className={cx('menu-item', 'd-none', 'd-sm-block')}>
-                                    <p>đăng nhập</p>
                                 </div>
                             )}
                         </Wrapper>

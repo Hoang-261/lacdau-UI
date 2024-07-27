@@ -6,12 +6,15 @@ import Sort from '~/component/Sort';
 
 import { useContext, useState, useEffect, createContext, useRef } from 'react';
 import { dataApi } from '~/App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter, faXmark } from '@fortawesome/free-solid-svg-icons';
 export const productRender = createContext();
 
 const cx = classNames.bind(styles);
 function ProductCategory() {
     const dataContext = useContext(dataApi);
     const dataSource = dataContext.data;
+    const [showFilter, setShowFilter] = useState(false);
     const dataInit = useRef([]);
     useEffect(() => {
         if (dataSource) {
@@ -43,9 +46,33 @@ function ProductCategory() {
 
     return (
         <div className={cx('wrapper', 'container-md')}>
-            <div className={cx('catalog-filter', 'd-none', 'd-md-block', 'col-md-3')}>
-                <Filter filterItems={filterItems} />
-            </div>
+            <>
+                <>
+                    {!showFilter ? (
+                        <div
+                            className={cx('icon-filter', 'd-flex', 'd-md-none')}
+                            onClick={() => setShowFilter((prev) => !prev)}
+                        >
+                            <FontAwesomeIcon icon={faFilter} />
+                        </div>
+                    ) : (
+                        <div className={cx('catalog-filter')}>
+                            <div className={cx('modal-overlay')}></div>
+                            <div className={cx('modal-content')}>
+                                <FontAwesomeIcon
+                                    className={cx('icon')}
+                                    icon={faXmark}
+                                    onClick={() => setShowFilter((prev) => !prev)}
+                                />
+                                <Filter filterItems={filterItems} />
+                            </div>
+                        </div>
+                    )}
+                </>
+                <div className={cx('d-none', 'd-md-block', 'col-md-3')}>
+                    <Filter filterItems={filterItems} />
+                </div>
+            </>
             <div className={cx('catalog-content')}>
                 <Sort sortItems={sortItems} />
                 <Product data={data} />

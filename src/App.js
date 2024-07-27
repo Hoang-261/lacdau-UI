@@ -4,6 +4,10 @@ import DefaultLayout from '~/layouts/DefaultLayout';
 import { Fragment, useEffect, useState, createContext } from 'react';
 import request from '~/utils/request';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const dataApi = createContext();
 function App() {
     const [data, setData] = useState(null);
@@ -48,6 +52,18 @@ function App() {
                     </Routes>
                 </div>
             </dataApi.Provider>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="light"
+            />
         </Router>
     );
 }

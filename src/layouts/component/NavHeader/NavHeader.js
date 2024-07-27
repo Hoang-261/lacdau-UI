@@ -12,6 +12,9 @@ import Button from '~/component/Button';
 import { useContext } from 'react';
 import { dataApi } from '~/App';
 import ProductSearch from '~/component/ProductSearch';
+import Login from '~/component/Login';
+import Register from '~/component/Register';
+import { state } from '../Header/Header';
 const cx = classNames.bind(styles);
 const navbarItems = [
     {
@@ -30,9 +33,10 @@ const navbarItems = [
         content: 'Mouse',
     },
 ];
+
 function NavHeader({ className }) {
-    const currentUser = true;
     const dataContext = useContext(dataApi);
+    const modal = useContext(state);
     const classes = cx('wrapper', {
         [className]: className,
     });
@@ -60,7 +64,7 @@ function NavHeader({ className }) {
                     </div>
                 </Tippy>
             </div>
-            {currentUser ? (
+            {modal.isUser ? (
                 <div className={cx('d-none', 'd-lg-block')}>
                     <Tippy
                         interactive
@@ -78,9 +82,14 @@ function NavHeader({ className }) {
                     </Tippy>
                 </div>
             ) : (
-                <div className={cx('menu-item', 'd-none', 'd-lg-block')}>
-                    <p>đăng nhập</p>
-                </div>
+                <>
+                    <div className={cx('menu-item')}>
+                        <Login />
+                    </div>
+                    <div className={cx('menu-item')}>
+                        <Register />
+                    </div>
+                </>
             )}
             <div className={cx('icon')}>
                 <Tippy
